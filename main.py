@@ -59,7 +59,7 @@ def get_members_data():
 def insert_members_data(member):
     with pool.connect() as conn:
         statement = text("""
-            INSERT INTO account(login_id, login, avatar_url, cnt_followers, cnt_following)
+            INSERT INTO member(login_id, login, avatar_url, cnt_followers, cnt_following)
             VALUES (:id, :login, :avatar_url, :cnt_followers, :cnt_following)
             ON CONFLICT (login_id) DO UPDATE
             SET login = :login, avatar_url = :avatar_url, cnt_followers = :cnt_followers, cnt_following = :cnt_following
